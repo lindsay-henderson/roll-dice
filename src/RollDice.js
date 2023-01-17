@@ -8,6 +8,7 @@ class RollDice extends Component {
   constructor(props) {
     super(props)
     this.state = {die1: 'one', die2: 'one'}
+    this.roll = this.roll.bind(this)
   }
   roll () {
     //pick two new #s
