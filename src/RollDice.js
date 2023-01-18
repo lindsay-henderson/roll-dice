@@ -16,8 +16,14 @@ class RollDice extends Component {
     const newDie1 = this.props.sides[Math.floor(Math.random() * this.props.sides.length)]
     
     const newDie2 = this.props.sides[Math.floor(Math.random() * this.props.sides.length)]
+    
+    //set state with new rolls
+    this.setState({die1: newDie1, die2: newDie2, rolling:true})
 
-    this.setState({die1: newDie1, die2: newDie2})
+    //wait one second, then set rolling to false
+    setTimeout(() => {
+      this.setState({rolling:false})
+    }, 1000)
   }
   render() {
     return (
@@ -27,7 +33,7 @@ class RollDice extends Component {
         <Die face={this.state.die2}/>
         </div>
         <button onClick={this.roll}>
-          {this.state.rolling? 'Rolling' : 'Roll Dice'}</button>
+          {this.state.rolling? 'Rolling...' : 'Roll Dice'}</button>
       </div>
     )
   } 
